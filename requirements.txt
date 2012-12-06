@@ -1,0 +1,17 @@
+# Instalar depedências para cepbr
+# =================================
+
+# para instalar utilize 
+## pip install -r requirements.text
+
+
+# Biblioteca para manipulação de dados através do protocolo HTTP.
+# Requests é utilizado para realizar as HttpRequests no site do correios 
+#
+requests==0.14.2
+
+
+# Biblioteca para scraping de HTML e XML
+# BeautifoulSoup é necessário para realizar o parser dos dados.
+#
+BeautifulSoup>=3.2.1
