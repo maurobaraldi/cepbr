@@ -1,0 +1,11 @@
+# Instalar depedências para cepbr
+# =================================
+
+# para instalar utilize 
+## pip install -r requirements.text
+
+
+# 
+# BeautifoulSoup é necessário para realizar a coleta dos dados no site dos Correios
+#
+BeautifulSoup>=3.2.1
