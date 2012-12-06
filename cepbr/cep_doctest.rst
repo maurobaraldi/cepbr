@@ -20,4 +20,4 @@ A coleta está correta, mas e se eu passar um campo vazio? ::
     >>> vazio = c.get_cep('')
     Traceback (most recent call last):
     ...
-    ValueError: need more than 0 values to unpack
+    ValueError: É necessário importar um CEP.
