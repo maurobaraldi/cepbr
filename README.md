@@ -41,6 +41,8 @@ pip install -r requirements.txt
 python -m doctest cep_doctest.rst -v
 ```
 
+### Contribuições
+[Lucas Magnum](https://github.com/LucasMagnum) (Doctests e Refactoring)
 
 ### Contato
 Mauro Navarro Baraldi (mauro.baraldi@gmail.com)
