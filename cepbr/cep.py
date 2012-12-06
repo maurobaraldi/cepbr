@@ -3,16 +3,7 @@
 #####################################################################
 # CEPBR - Biblioteca consulta ao CEP pelo site dos correios do Brasil
 #
-# author: Mauro Baraldi
-#         Igor Hercowitz
-#
 # contribuição: Lucas Magnum
-#
-#
-# v 1.2.1
-# usage:
-# >>> tracker = CepTracker()
-# >>> infos = tracker.track(cep)
 ####################################################################
 
 from BeautifulSoup import BeautifulSoup
@@ -25,12 +16,10 @@ class CEP():
         self.url = 'http://m.correios.com.br/movel/buscaCepConfirma.do'
         self.result = []
 
-        self.fields = ['logradouro', 'bairro', ['cidade', 'estado'], 'cep']
-
     def get_cep(self, cep):
 
         if not cep:
-            raise ValueError('É necessário importar um CEP.')
+            raise ValueError('É necessário infortar um CEP.')
 
         http_response = requests.post(
             self.url,
