@@ -5,7 +5,13 @@
 ## pip install -r requirements.text
 
 
+#
+# Requests é utilizado para realizar as HttpRequests no site do correios 
+#
+requests==0.14.2
+
+
 # 
-# BeautifoulSoup é necessário para realizar a coleta dos dados no site dos Correios
+# BeautifoulSoup é necessário para realizar o parser dos dados.
 #
 BeautifulSoup>=3.2.1
