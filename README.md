@@ -12,14 +12,13 @@ disponibilidade dessa url. Para acesso à base de dados de CEP atualizada, deve-
 ### Pré-requisitos
 
 [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/) - Biblioteca para scraping de HTML e XML
+[requests](docs.python-requests.org) - Biblioteca para manipulação de dados através do protocolo HTTP.
+
+Para instalar: 
 ```
-pip install BeautifulSoup
+pip install -r requirements.txt
 ```
 
-[requests](docs.python-requests.org) - Biblioteca para manipulação de dados através do protocolo HTTP.
-```
-pip install request
-```
 
 ### Modo de uso
 ```
@@ -34,7 +33,11 @@ pip install request
 ```
 
 ### Todo
-- Testes
+- Doctests
+```
+python -m doctest cep_doctest.rst -v
+```
+
 
 ### Contato
 Mauro Navarro Baraldi (mauro.baraldi@gmail.com)
