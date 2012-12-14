@@ -3,23 +3,15 @@ CEP-BR
 
 ### Biblioteca em Python para acesso à base de CEP dos Correios do Brasil
 
-Inspirada no [postmon](https://github.com/CodingForChange/postmon), a proposta dela é ser mais simples e modular.
+Inicialmente inspirada no [postmon](https://github.com/CodingForChange/postmon), a proposta era deixa-la mais simples e modular. Entretanto oo projeto postmon utiliza uma url de busca dos site dos Correios do Brasil. Sua disponibilidade esta diretamente associada a disponibilidade dessa url.
 
-Aviso: CEP-BR utiliza uma url de busca dos site dos Correios do Brasil. Sua disponibilidade esta diretamente associada a
-disponibilidade dessa url. Para acesso à base de dados de CEP atualizada, deve-se entrar em contato diretamente com os 
-[Correios do Brasil](http://www.correios.com.br/). Infelizmente essa base de dados é paga, cara, e tem atualização trimestral. 
+A nova versão utiliza a [API](http://avisobrasil.com.br/api-de-consulta-de-cep/) de consulta a CEP do Correio Control da [Aviso](http://avisobrasil.com.br/)
 
-### Pré-requisitos
+### Mudanças de versão
 
-[BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/) - Biblioteca para scraping de HTML e XML.
-
-[requests](docs.python-requests.org) - Biblioteca para manipulação de dados através do protocolo HTTP.
-
-Para instalar:
-
-```
-pip install -r requirements.txt
-```
+- Puramente em Python. Somente bibliotecas da standard lib.
+- Código otimizado
+- Resultado em JSON nativo
 
 
 ### Modo de uso
@@ -27,10 +19,10 @@ pip install -r requirements.txt
 >>> from cepbr import CEP
 >>> c = CEP()
 >>> c.get_cep('01154030')
-{'bairro': u'Barra Funda', 'cidade': u'S\xe3o Paulo', 'uf': u'SP', 'logradouro': u'Rua Margarida', 'cep': u'01154030'}
+{u'bairro': u'Barra Funda', u'uf': u'SP', u'logradouro': u'Rua Margarida', u'localidade': u'S\xe3o Paulo', u'cep': '01154030'}
 >>> 
 >>> c.get_cep('05437001')
-{'bairro': u'Sumarezinho', 'cidade': u'S\xe3o Paulo', 'uf': u'SP', 'logradouro': u'Rua Heitor Penteado - de 1059 a 1769 - lado \xedmpar', 'cep': u'05437001'}
+{u'bairro': u'Sumarezinho', u'uf': u'SP', u'logradouro': u'Rua Heitor Penteado', u'localidade': u'S\xe3o Paulo', u'cep': u'05437001'}
 >>> 
 ```
 

@@ -20,4 +20,4 @@ A coleta está correta, mas e se eu passar um campo vazio? ::
     >>> vazio = c.get_cep('')
     Traceback (most recent call last):
     ...
-    ValueError: É necessário importar um CEP.
+    ValueError: CEP inválido ou incompleto.

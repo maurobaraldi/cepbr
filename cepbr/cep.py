@@ -3,48 +3,30 @@
 #####################################################################
 # CEPBR - Biblioteca consulta ao CEP pelo site dos correios do Brasil
 #
-# contribuição: Lucas Magnum
+# v1.0
+# - Puramente em Python. Somente bibliotecas da standard lib.
+# - Código otimizado.
+# - Resultado em JSON.
 ####################################################################
 
-from BeautifulSoup import BeautifulSoup
-import requests
-
+import json
+import urllib
 
 class CEP():
 
     def __init__(self):
-        self.url = 'http://m.correios.com.br/movel/buscaCepConfirma.do'
-        self.result = []
+        self.url = 'http://cep.correiocontrol.com.br/%s.json'
 
     def get_cep(self, cep):
 
-        if not cep:
+        _cep_ = cep
+
+        if not _cep_:
             raise ValueError('É necessário infortar um CEP.')
 
-        http_response = requests.post(
-            self.url,
-            data={
-                'cepEntrada': cep,
-                'tipoCep': '',
-                'cepTemp': '',
-                'metodo': 'buscarCep'
-            })
+        query = urllib.urlopen(self.url % _cep_).read()
 
-        if not http_response.status_code == 200:
-            raise requests.HTTPError(
-                'Response code %i' % http_response.status_code)
-
-        nodes = BeautifulSoup(http_response.text).findAll(
-            'span', {'class': 'respostadestaque'})
-
-        logradouro, bairro, cidade_uf, cep = [n.text.strip() for n in nodes]
-        cidade_uf = [i.strip() for i in cidade_uf.split('\n')]
-        cidade, uf = cidade_uf[0], cidade_uf[-1].replace('/', '')
-
-        return {
-            'logradouro': logradouro,
-            'bairro': bairro,
-            'cidade': cidade,
-            'uf': uf,
-            'cep': cep
-        }
+        try:
+            return json.loads(query)
+        except ValueError:
+            raise ValueError('CEP inválido ou incompleto.')
