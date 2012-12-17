@@ -18,13 +18,10 @@ class CEP():
         self.url = 'http://cep.correiocontrol.com.br/%s.json'
 
     def get_cep(self, cep):
+        if not cep:
+            raise ValueError('É necessário informar um CEP.')
 
-        _cep_ = cep
-
-        if not _cep_:
-            raise ValueError('É necessário infortar um CEP.')
-
-        query = urllib.urlopen(self.url % _cep_).read()
+        query = urllib.urlopen(self.url % cep).read()
 
         try:
             return json.loads(query)
