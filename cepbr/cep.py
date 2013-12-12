@@ -19,11 +19,12 @@ class CEP():
 
     def get_cep(self, cep):
         if not cep:
-            raise ValueError('É necessário informar um CEP.')
-
-        query = urllib.urlopen(self.url % cep).read()
+            raise ValueError('É necessário informar um CEP.')        
 
         try:
+            query = urllib.urlopen(self.url % cep).read()
             return json.loads(query)
         except ValueError:
             raise ValueError('CEP inválido ou incompleto.')
+        except IOError:
+            raise IOError('Não foi possível encontrar o CEP. Verifique sua conexão.')    
